@@ -6,6 +6,12 @@ Post list
 
 {% block body %}
 
-<h1>Hello from base type HTML</h1>
+<h3>List of posts</h3>
+<hr>
+{% for post in posts %}
 
+<h3>{{ post.title }}</h3> created on <h4>{{ post.created_date }}</h4> by <h4>{{ post.author }}</h4>
+<p>{{ post.text }}</p>
+
+{% endfor %}
 {% endblock body %}
