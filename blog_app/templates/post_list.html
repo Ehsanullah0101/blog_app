@@ -4,14 +4,25 @@
 Post list
 {% endblock title%}
 
+
+
+
 {% block body %}
 
-<h3>List of posts</h3>
-<hr>
-{% for post in posts %}
 
-<h3>{{ post.title }}</h3> created on <h4>{{ post.created_date }}</h4> by <h4>{{ post.author }}</h4>
-<p>{{ post.text }}</p>
+<div class="row">
+    <div class="col-md-8">
+        {% for post in posts %}
+            <div class="post">
+                <div class="date">
+                    <p>Published: {{ post.publish_date }}</p>
+                </div>
+                <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 
-{% endfor %}
+
 {% endblock body %}
